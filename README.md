@@ -2,7 +2,7 @@
 
 Bu proje, **N Katmanlı Mimari** ve **SOLID Prensipleri** kullanılarak geliştirilmiş **dinamik bir blog sitesidir**.  
 Admin, yazar ve kullanıcı modülleri ile **tam kapsamlı bir içerik yönetim sistemi** sunmaktadır.  
-
+PROJE CANLI LINKI [(emrecinar.com.tr)](url)
 **📌 Öne Çıkan Özellikler:**  
 ✅ **MVC5 ile Kurumsal Mimari Kullanımı**  
 ✅ **SOLID Prensiplerine Uygun Yapı**  
@@ -14,8 +14,24 @@ Admin, yazar ve kullanıcı modülleri ile **tam kapsamlı bir içerik yönetim 
 ✅ **Galeri Sayfası (Kendi Fotoğraflarınızı Yükleyin & Yönetin)**  
 ✅ **Admin Paneli ile Yönetim Kolaylığı**  
 ✅ **Pagination, Search, Validation & Session Kullanımı**  
-
----  
+---
+!![resim_2025-03-21_183040732](https://github.com/user-attachments/assets/e499f11f-ed45-4ca8-a50a-a8ec3ab07224)
+![resim_2025-03-21_183000162](https://github.com/user-attachments/assets/36540067-4dd1-4b37-8648-eef4fa3ed8c0)
+![resim_2025-03-21_182943780](https://github.com/user-attachments/assets/985c2bd7-c04d-4e0e-a7e3-b866d8819ff5)
+![resim_2025-03-21_182931417](https://github.com/user-attachments/assets/9187e750-44b5-404a-92af-d754ac9483fb)
+![resim_2025-03-21_182912675](https://github.com/user-attachments/assets/1d1542cb-8a59-4dca-aa9c-7d459f4e0b0e)
+![resim_2025-03-21_182853119](https://github.com/user-attachments/assets/c8c11c53-14bd-4094-b336-de1a22673b1f)
+![resim_2025-03-21_182831601](https://github.com/user-attachments/assets/234fecb9-214a-4ca0-a11a-3894913ae5fb)
+![resim_2025-03-21_182813614](https://github.com/user-attachments/assets/49b8dcc3-e16a-4967-bd3f-3bbf1f156c2c)
+![resim_2025-03-21_182759609](https://github.com/user-attachments/assets/f8dc5846-346f-4ef2-a56a-4c7c20ff2de5)
+![Kategor](https://github.com/user-attachments/assets/6921e202-3a71-493c-a800-4f692a763c9a)
+![Footer](https://github.com/user-attachments/assets/79edb836-648c-4332-87f4-c18a4b2e7418)
+![chatbot](https://github.com/user-attachments/assets/9cc590ea-f5bf-4878-af34-10b28453262c)
+![anasayfa3](https://github.com/user-attachments/assets/e66ddbda-7ee7-44d4-ac20-e7aa6b38448f)
+![Anasayfa2](https://github.com/user-attachments/assets/b8bf997b-04cb-4eb6-a5e8-b19d8d9c5858)
+![AnaSayfa](https://github.com/user-attachments/assets/3b261820-9ce0-4ee1-b259-217ed91b2afe)
+[proje resimleri]
+---                                                  
 
 ## **📌 Proje Mimarisi**  
 Bu projede **4 katmanlı mimari** kullanılmıştır:  
@@ -140,6 +156,7 @@ Update-Database
 ✅ **Projemize yapay zeka tabanlı bir ChatBot ekleyerek modernleştirdik.**  
 ✅ **Galeri modülü ile görselleri yönetilebilir hale getirdik.**  
 
-📌 **Bu projeyi geliştirerek kendinize ait bir blog sitesi oluşturabilirsiniz!**  
+📌 **Bu projeyi geliş![AnaSayfa](https://github.com/user-attachments/assets/4e4096a7-62c0-4c4a-ae6a-f0daf86ca6aa)
+tirerek kendinize ait bir blog sitesi oluşturabilirsiniz!**  
 📌 **Sorularınızı yorum olarak bırakabilir veya bana ulaşabilirsiniz.**  
 
