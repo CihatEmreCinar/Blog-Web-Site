@@ -1,0 +1,7 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Gallery>
+@{
+    ViewBag.Title = "Galeri";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@Html.Action("GalleryList", "Gallery")

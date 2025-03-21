@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@{
+    ViewBag.Title = "Admin Blog Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-primary mb-3">Admin Blog Listesi</h2>
+<br />
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr class="text-center">
+            <th style="width: 5%;">ID</th>
+            <th style="width: 20%;">Başlık</th>
+            <th style="width: 15%;">Kategori</th>
+            <th style="width: 15%;">Yazar</th>
+            <th style="width: 10%;">Tarih</th>
+            <th colspan="4">Aksiyonlar</th> @* 4 sütunluk başlık *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-left">
+                <td class="text-center">@item.BlogID</td>
+                <td>@item.BlogTitle</td>
+                <td class="text-center">@item.Category.CategoryName</td>
+                <td class="text-center">@item.Author.AuthorName</td>
+                <td class="text-center">@item.BlogDate.ToShortDateString()</td>
+
+                @* Aksiyonlar için her bir butonu ayrı bir sütuna koyduk *@
+                <td class="text-center">
+                    <a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-danger btn-sm" title="Sil">
+                        <i class="bi bi-trash"></i> Sil
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="/Blog/UpdateBlog/@item.BlogID" class="btn btn-success btn-sm" title="Güncelle">
+                        <i class="bi bi-pencil-square"></i> Güncelle
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="/Blog/BlogDetail/@item.BlogID" class="btn btn-warning btn-sm" title="Detaylar">
+                        <i class="bi bi-info-circle"></i> Detaylar
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="/Blog/GetCommentByBlog/@item.BlogID" class="btn btn-dark btn-sm" title="Yorumlar">
+                        <i class="bi bi-chat-dots"></i> Yorumlar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="\Blog\AddNewBlog\" class="btn btn-primary mt-3">Yeni Blog Ekle</a>

@@ -1,0 +1,50 @@
+﻿@model List<EntityLayer.Concrete.Admin>
+@{
+    ViewBag.Title = "Admin Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Yönetimi</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Kullanıcı Adı</th>
+            <th>Rol</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var admin in Model)
+        {
+            <tr>
+                <td>@admin.AdminID</td>
+                <td>@admin.UserName</td>
+                <td>
+                    @switch (admin.AdminRole)
+                    {
+                        case "A":
+                            <span class="badge badge-danger">Süper Admin</span>
+                            break;
+                        case "B":
+                            <span class="badge badge-warning">Adminimsi</span>
+                            break;
+                        case "C":
+                            <span class="badge badge-primary">Admin Junior</span>
+                            break;
+                        case "D":
+                            <span class="badge badge-info">Admincik</span>
+                            break;
+                        default:
+                            <span class="badge badge-dark">Bilinmeyen Rol</span>
+                            break;
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("EditAdmin", "Blog", new { id = admin.AdminID })" class="btn btn-warning">Rolü Düzenle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

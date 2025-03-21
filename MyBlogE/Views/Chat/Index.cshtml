@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Google Gemini Sohbet";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="chat-container" style="
+    width: 70%;
+    max-width: 900px;
+    height: 600px;
+    margin: 50px auto;
+    background: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;">
+
+    <h2 style="text-align: center;
+      background: #205781;
+      color: white;
+      margin: 0;
+      padding: 15px;">
+        Mini Blog ChatBot
+    </h2>
+
+    <!-- Sohbet Mesaj Alanı -->
+    <div id="chat-box" style="
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        background: #f9f9f9;">
+    </div>
+
+    <!-- Mesaj Gönderme Alanı -->
+    <div class="chat-input" style="
+        display: flex;
+        padding: 15px;
+        border-top: 1px solid #ddd;
+        background: white;">
+        <input type="text" id="userMessage" placeholder="Bir şeyler yazın..." onkeypress="handleKeyPress(event)" style="
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;">
+        <button onclick="sendMessage()" style="background: #4F959D;
+          color: white; border: none; padding: 12px 20px; margin-left: 10px; cursor: pointer; border-radius: 5px; font-size: 16px;">
+            Gönder
+        </button>
+    </div>
+</div>
+
+<!-- Stiller -->
+<style>
+    .message {
+        max-width: 70%;
+        padding: 10px 15px;
+        margin: 5px;
+        border-radius: 20px;
+        font-size: 16px;
+        word-wrap: break-word;
+        display: inline-block;
+        clear: both;
+    }
+
+    .user-message {
+        background: #4F959D;
+        color: white;
+        align-self: flex-end;
+        text-align: right;
+        border-bottom-right-radius: 0;
+    }
+
+    .bot-message {
+        background: #e0e0e0;
+        color: black;
+        align-self: flex-start;
+        text-align: left;
+        border-bottom-left-radius: 0;
+    }
+
+    #chat-box {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<script>
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    }
+
+    function sendMessage() {
+        var message = document.getElementById("userMessage").value;
+        if (!message.trim()) return;
+
+        var chatBox = document.getElementById("chat-box");
+
+        // Kullanıcı mesajı ekle
+        var userMessageDiv = document.createElement("div");
+        userMessageDiv.classList.add("message", "user-message");
+        userMessageDiv.innerHTML = `<span>Sen:</span> ${message}`;
+        chatBox.appendChild(userMessageDiv);
+
+        // API'ye isteği gönder
+        fetch("/Chat/GetChatResponse", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: message })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Bot mesajını ekle
+                var botMessageDiv = document.createElement("div");
+                botMessageDiv.classList.add("message", "bot-message");
+                botMessageDiv.innerHTML = `<span>Mini Blog Bot:</span> ${data.response}`;
+                chatBox.appendChild(botMessageDiv);
+
+                // Sohbeti en alta kaydır
+                chatBox.scrollTop = chatBox.scrollHeight;
+            })
+            .catch(error => {
+                console.error("Hata:", error);
+            });
+
+        // Kullanıcı girişini temizle
+        document.getElementById("userMessage").value = "";
+    }
+</script>

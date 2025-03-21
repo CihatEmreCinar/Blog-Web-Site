@@ -1,0 +1,208 @@
+﻿@using PagedList.Mvc
+@using PagedList
+@model IPagedList<EntityLayer.Concrete.Gallery>
+
+
+
+<h2 class="text-center" style="margin-right:40px">Galeri</h2>
+
+<!-- Galeri Resimleri -->
+<div class="container">
+    <div class="row">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var item = Model.ElementAt(i);
+            <div class="col-lg-3 col-md-4 col-6 mb-4">
+                <div class="gallery">
+                    <!-- Resme tıklanınca Popup Aç -->
+                    <a href="javascript:void(0)" onclick="openModal(@i)">
+                        <img src="@item.ImagePath" alt="@item.Title" class="img-fluid rounded">
+                    </a>
+                    <div class="desc">@item.Title</div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Sayfalama (Pagination) -->
+    <div class="pagination-container">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>
+
+<!-- Modal (Popup) -->
+<div id="imageModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+    <a class="next" onclick="changeImage(1)">&#10095;</a>
+    <div class="modal-content">
+        <img id="modalImage" src="" style="width:100%">
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+    /* Galeri Stili */
+    div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 220px;
+        cursor: pointer;
+    }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+    div.desc {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .pagination-container {
+        margin-top: 20px;
+    }
+
+    /* Modal (Popup) */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+        text-align: center;
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 60%;
+    }
+        /* Modal İçindeki Resim Boyutlandırma */
+        .modal-content img {
+            max-width: 100%; /* Genişliği %75 oranında küçült */
+            max-height: 100vh; /* Yüksekliği %75 oranında küçült */
+            display: block;
+            margin: auto;
+            object-fit: contain; /* Resmin bozulmadan ölçeklenmesini sağlar */
+            border-radius: 10px; /* Hafif yuvarlak köşeler */
+            transition: transform 0.3s ease-in-out; /* Yumuşak geçiş efekti */
+        }
+
+
+    /* Kapatma (X) Butonu - Sağ Üstten Aşağı Kaydırıldı */
+    .close {
+        position: absolute;
+        top: 100px; /* Butonu aşağı kaydır */
+        right: 25px;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 5px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        z-index: 15;
+    }
+
+        /* Kapatma Butonu Hover */
+        .close:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+
+
+    .caption-container {
+        background-color: black;
+        padding: 10px;
+        color: white;
+    }
+
+    /* Geçiş Butonları */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: 40px; /* Daha belirgin olması için genişlik artırıldı */
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        transition: 0.3s ease;
+        border-radius: 50%;
+        user-select: none;
+        -webkit-user-select: none;
+        background: rgba(0, 0, 0, 0.5); /* Butonları daha belirgin hale getirmek için arka plan */
+        z-index: 10;
+    }
+
+    /* Sol Ok (Prev) Konumlandırma */
+    .prev {
+        left: 15px;
+        border-radius: 50%;
+    }
+
+    /* Sağ Ok (Next) Konumlandırma */
+    .next {
+        right: 15px;
+        border-radius: 50%;
+    }
+
+        /* Buton Üzerine Gelindiğinde Renk Değişimi */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+
+</style>
+
+<!-- JavaScript -->
+<script>
+    var currentIndex = 0;
+    var images = @Html.Raw(Json.Encode(Model.Select(x => new { x.ImagePath, x.Title })));
+
+    function openModal(index) {
+        currentIndex = index;
+        showImage();
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+
+    function showImage() {
+        document.getElementById("modalImage").src = images[currentIndex].ImagePath;
+        document.getElementById("caption").innerText = images[currentIndex].Title;
+    }
+
+    function changeImage(n) {
+        currentIndex += n;
+        if (currentIndex >= images.length) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        showImage();
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "ArrowRight") changeImage(1);
+        if (event.key === "ArrowLeft") changeImage(-1);
+    });
+</script>

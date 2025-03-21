@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "Admin Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Düzenle</h2>
+
+<form method="post" action="@Url.Action("EditAdmin", "Blog")">
+    <input type="hidden" name="AdminID" value="@Model.AdminID" />
+
+    <div class="form-group">
+        <label>Kullanıcı Adı</label>
+        <input type="text" class="form-control" value="@Model.UserName"  />
+    </div>
+
+    <div class="form-group">
+        <label>Yeni Rol Seçin</label>
+        <select name="AdminRole" class="form-control">
+            @foreach (var role in ViewBag.roles)
+            {
+                <option value="@role.Value" @(role.Value == Model.AdminRole ? "selected" : "")>@role.Text</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</form>

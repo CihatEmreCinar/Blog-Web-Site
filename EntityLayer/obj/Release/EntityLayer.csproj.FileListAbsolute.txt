@@ -1,0 +1,12 @@
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\bin\Release\EntityLayer.dll.config
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\bin\Release\EntityLayer.dll
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\bin\Release\EntityLayer.pdb
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\bin\Release\EntityFramework.dll
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\bin\Release\EntityFramework.xml
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\obj\Release\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\obj\Release\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\obj\Release\EntityLa.DA06A3F2.Up2Date
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\obj\Release\EntityLayer.dll
+C:\Users\cigo_\source\repos\MyBlogE\EntityLayer\obj\Release\EntityLayer.pdb
