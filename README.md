@@ -2,7 +2,7 @@
 
 Bu proje, **N Katmanlı Mimari** ve **SOLID Prensipleri** kullanılarak geliştirilmiş **dinamik bir blog sitesidir**.  
 Admin, yazar ve kullanıcı modülleri ile **tam kapsamlı bir içerik yönetim sistemi** sunmaktadır.  
-PROJE CANLI LINKI [blokokog.com.tr](url)
+PROJE CANLI LINKI [blokokog.com.tr](blokolog.com.tr)
 **📌 Öne Çıkan Özellikler:**  
 ✅ **MVC5 ile Kurumsal Mimari Kullanımı**  
 ✅ **SOLID Prensiplerine Uygun Yapı**  
