@@ -156,7 +156,6 @@ Update-Database
 ✅ **Projemize yapay zeka tabanlı bir ChatBot ekleyerek modernleştirdik.**  
 ✅ **Galeri modülü ile görselleri yönetilebilir hale getirdik.**  
 
-📌 **Bu projeyi geliş![AnaSayfa](https://github.com/user-attachments/assets/4e4096a7-62c0-4c4a-ae6a-f0daf86ca6aa)
-tirerek kendinize ait bir blog sitesi oluşturabilirsiniz!**  
+📌 **Bu projeyi geliştirerek kendinize ait bir blog sitesi oluşturabilirsiniz![AnaSayfa](https://github.com/user-attachments/assets/4e4096a7-62c0-4c4a-ae6a-f0daf86ca6aa)!**  
 📌 **Sorularınızı yorum olarak bırakabilir veya bana ulaşabilirsiniz.**  
 
